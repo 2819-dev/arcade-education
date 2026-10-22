@@ -1,6 +1,9 @@
 # Arcade Education
 
-Educational games platform for school — classmates, categories, and playable games.
+School game center for Guide classrooms — Roblox-inspired browse shell with real game covers, detail pages, and a Guide launch bridge stub.
+
+**Canonical URL:** https://arcade-edu.guidelearning.org  
+**Env:** `NEXT_PUBLIC_ARCADE_URL` (see `.env.example`)
 
 ## Stack
 
@@ -10,21 +13,34 @@ Educational games platform for school — classmates, categories, and playable g
 ## Getting started
 
 ```bash
+cp .env.example .env.local
 npm install
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Auth
+## Routes
 
-SSO from Guide will land later. The home experience includes a **Continue with Guide** stub that toggles a local signed-in state only — no real SSO yet.
+| Path | Purpose |
+| --- | --- |
+| `/` | Home catalog (sidebar + bottom bar) |
+| `/discover` | Full catalog browse |
+| `/games/[id]` | Game detail (cover, 2D/3D, Play stub) |
+| `/admin` | Light stub — teacher view / block-access via Guide |
+| `/launch?token=` | Guide launch bridge stub (exchange TO BUILD) |
+
+## Auth / entitlements
+
+Do not assume Guide cookies on the Arcade subdomain. Guide will mint a short-lived token → `/launch?token=…` → Arcade exchanges at Guide `POST /api/apps/launch/exchange` (TO BUILD). Entitlement gating is stubbed for UI work.
+
+Guide catalog / My apps changes belong in the Guide repo — not here.
 
 ## Scripts
 
-| Command        | Description              |
-| -------------- | ------------------------ |
-| `npm run dev`  | Local development server |
-| `npm run build`| Production build         |
-| `npm run start`| Run production build     |
-| `npm run lint` | ESLint                   |
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Local development |
+| `npm run build` | Production build |
+| `npm run start` | Run production build |
+| `npm run lint` | ESLint |
