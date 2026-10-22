@@ -41,6 +41,13 @@ Guide catalog / My apps changes belong in the Guide repo — not here.
 | Command | Description |
 | --- | --- |
 | `npm run dev` | Local development |
-| `npm run build` | Production build |
-| `npm run start` | Run production build |
+| `npm run build` / `pages:build` | Static export → `out/` (Cloudflare Pages) |
+| `npm run pages:deploy` | `wrangler pages deploy out --project-name=arcade-edu` |
+| `npm run start` | Run production build (Node; not used on Pages) |
 | `npm run lint` | ESLint |
+
+## Cloudflare Pages
+
+Production host: **https://arcade-edu.guidelearning.org** · Pages project **`arcade-edu`** (Hillel CF account).
+
+Stack is Next 16 static export (`output: "export"` → `out/`), not `@cloudflare/next-on-pages` (peer max Next 15.5.2). Deploy with `wrangler pages deploy` only — not `wrangler deploy`.
