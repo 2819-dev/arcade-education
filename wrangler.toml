@@ -1,0 +1,5 @@
+# Cloudflare Pages — Arcade Education (static Next export → `out/`)
+# Do not use `wrangler deploy` (Workers). Use `wrangler pages deploy`.
+name = "arcade-edu"
+compatibility_date = "2024-09-23"
+pages_build_output_dir = "out"

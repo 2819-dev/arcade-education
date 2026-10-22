@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "pages:build": "next build",
+    "pages:deploy": "wrangler pages deploy out --project-name=arcade-edu",
     "start": "next start",
     "lint": "eslint"
   },
